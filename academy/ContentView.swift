@@ -1,22 +1,30 @@
 //
 //  ContentView.swift
-//  academy
+//  ProjetoAcademy
 //
-//  Created by user on 14/03/25.
+//  Created by User on 17/03/25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "star")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                .colorScheme(ColorScheme.light)
-            Text("Hello, world!")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Treinos", systemImage: "dumbbell")
+                }
+
+            ConquestView()
+                .tabItem {
+                    Label("Conquistas", systemImage: "trophy")
+                }
+
+            ProfileView()
+                .tabItem {
+                    Label("Ajustes", systemImage: "gearshape")
+                }
         }
-        .padding()
     }
 }
 
