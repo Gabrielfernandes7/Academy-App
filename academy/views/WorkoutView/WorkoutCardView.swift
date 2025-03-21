@@ -12,7 +12,7 @@ struct WorkoutCardView: View {
     
     var body: some View {
         HStack{
-            Image(systemName: "figure.gymnastics").font(.system(size: 40))
+            Image(systemName: "figure.gymnastics").font(.system(size: 30))
             VStack(alignment: .leading){
                 Text(workout.title)
                 HStack{
