@@ -6,17 +6,17 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Text("Local do calendário")
-                }
+            VStack(spacing: 0) {
+                CalendarCarouselView()
+                    .frame(height: 150)
+                    .padding(.top)
+                
+                Spacer() 
             }
             .navigationTitle("MuscleApp")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
-                        
-
                         Spacer()
                         
                         NavigationLink(destination: ConquestView()){
@@ -38,4 +38,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
