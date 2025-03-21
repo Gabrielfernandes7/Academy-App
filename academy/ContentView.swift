@@ -1,44 +1,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section {
-                    // Calendários
                     Text("Local do calendário")
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("MuscleApp")
             .toolbar {
-                // Item centralizado (título + botão)
-                ToolbarItem(placement: .principal) {
+                ToolbarItem(placement: .topBarTrailing) {
                     HStack {
-                        Text("Nome do App")
-                            .font(.system(size: 30))
+                        
+
                         Spacer()
                         
-                        Button(action: {
-                            // Ação do botão
-                            print("Botão de conquistas pressionado")
-                        }) {
-                            Image(systemName: "trophy").foregroundStyle(.black)
-                            
-                            
+                        NavigationLink(destination: ConquestView()){
+                            Image(systemName: "trophy").foregroundColor(.primary)
                         }
                         
-                        Button(action: {
-                            // Ação do botão
-                            print("Botão de settings pressionado")
-                        }) {
-                            Image(systemName: "gearshape.fill").foregroundStyle(.black)
+                        NavigationLink(destination: ProfileView(isDarkMode: $isDarkMode)){
+                            Image(systemName: "gearshape").foregroundColor(.primary)
                         }
                     }
-                    .frame(maxWidth: .infinity) // Ocupa toda a largura disponível
+                    .frame(maxWidth: .infinity)
                 }
             }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
