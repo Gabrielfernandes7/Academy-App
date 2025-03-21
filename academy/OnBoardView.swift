@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OnBoardView: View {
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -20,7 +23,7 @@ struct OnBoardView: View {
                 }
                 
             }
-        }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
         
     }
 }
