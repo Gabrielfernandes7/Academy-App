@@ -164,7 +164,7 @@ struct CalendarView: View {
                     .cornerRadius(10)
             } else if Calendar.current.isDateInToday(day) {
                 Rectangle()
-                    .fill(Color.orange.opacity(0.2))
+                    .fill(Color.yellow.opacity(0.3))
                     .cornerRadius(10)
             } else {
                 Rectangle()
