@@ -3,39 +3,35 @@ import SwiftUI
 struct ContentView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    Text("Local do calendário")
-                }
-            }
-            .navigationTitle("MuscleApp")
+            VStack {
+                CalendarView()
+                
+                Spacer()
+            }.padding(.top, 30)
+//            .navigationTitle("Meus treinos")
             .toolbar {
+
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
-                        
-
-                        Spacer()
-                        
-                        NavigationLink(destination: ConquestView()){
+                        NavigationLink(destination: ConquestView()) {
                             Image(systemName: "trophy").foregroundColor(.primary)
-                        }
+                        }.padding(6)
                         
-                        NavigationLink(destination: ProfileView(isDarkMode: $isDarkMode)){
-                            Image(systemName: "gearshape").foregroundColor(.primary)
+                        NavigationLink(destination: ProfileView(isDarkMode: $isDarkMode)) {
+                            Image(systemName: "gearshape.fill").foregroundColor(.primary)
                         }
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
 #Preview {
     ContentView()
 }
-

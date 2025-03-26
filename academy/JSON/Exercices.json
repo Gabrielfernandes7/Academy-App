@@ -1,0 +1,207 @@
+[
+  {
+    "title": "Treino de Peito",
+    "icon": "figure.strengthtrainingfigure.strengthtraining.fill",
+    "exercises": [
+      {
+        "name": "Supino Reto",
+        "sets": 3,
+        "reps": 8,
+        "weight": 80,
+        "categoria": "Peito"
+      },
+      {
+        "name": "Supino Inclinado com Halteres",
+        "sets": 3,
+        "reps": 10,
+        "weight": 30,
+        "categoria": "Peito"
+      },
+      {
+        "name": "Crucifixo Reto",
+        "sets": 3,
+        "reps": 12,
+        "weight": 15,
+        "categoria": "Peito"
+      },
+      {
+        "name": "Flexões",
+        "sets": 3,
+        "reps": 15,
+        "weight": 0,
+        "categoria": "Peito"
+      },
+      {
+        "name": "Supino Declinado",
+        "sets": 3,
+        "reps": 8,
+        "weight": 70,
+        "categoria": "Peito"
+      }
+    ]
+  },
+  {
+    "title": "Treino de Costas",
+    "icon": "figure.walk",
+    "exercises": [
+      {
+        "name": "Barra Fixa",
+        "sets": 3,
+        "reps": 0,
+        "weight": 0,
+        "categoria": "Costas"
+      },
+      {
+        "name": "Remada Curvada com Barra",
+        "sets": 3,
+        "reps": 8,
+        "weight": 60,
+        "categoria": "Costas"
+      },
+      {
+        "name": "Remada Unilateral com Halter",
+        "sets": 3,
+        "reps": 10,
+        "weight": 25,
+        "categoria": "Costas"
+      },
+      {
+        "name": "Puxada Alta (Pulldown)",
+        "sets": 3,
+        "reps": 10,
+        "weight": 50,
+        "categoria": "Costas"
+      },
+      {
+        "name": "Remada Baixa",
+        "sets": 3,
+        "reps": 12,
+        "weight": 40,
+        "categoria": "Costas"
+      }
+    ]
+  },
+  {
+    "title": "Treino de Tríceps",
+    "icon": "figure.cooldown",
+    "exercises": [
+      {
+        "name": "Supino Fechado",
+        "sets": 3,
+        "reps": 8,
+        "weight": 50,
+        "categoria": "Triceps"
+      },
+      {
+        "name": "Tríceps Francês com Halter",
+        "sets": 3,
+        "reps": 10,
+        "weight": 20,
+        "categoria": "Triceps"
+      },
+      {
+        "name": "Tríceps na Polia Alta",
+        "sets": 3,
+        "reps": 12,
+        "weight": 30,
+        "categoria": "Triceps"
+      },
+      {
+        "name": "Paralelas",
+        "sets": 3,
+        "reps": 0,
+        "weight": 0,
+        "categoria": "Triceps"
+      },
+      {
+        "name": "Extensão de Tríceps com Corda",
+        "sets": 3,
+        "reps": 15,
+        "weight": 20,
+        "categoria": "Triceps"
+      }
+    ]
+  },
+  {
+    "title": "Treino de Bíceps",
+    "icon": "figure.arms.open",
+    "exercises": [
+      {
+        "name": "Rosca Direta com Barra",
+        "sets": 3,
+        "reps": 8,
+        "weight": 40,
+        "categoria": "Biceps"
+      },
+      {
+        "name": "Rosca Alternada com Halteres",
+        "sets": 3,
+        "reps": 10,
+        "weight": 15,
+        "categoria": "Biceps"
+      },
+      {
+        "name": "Rosca Scott",
+        "sets": 3,
+        "reps": 12,
+        "weight": 30,
+        "categoria": "Biceps"
+      },
+      {
+        "name": "Rosca Concentrada",
+        "sets": 3,
+        "reps": 10,
+        "weight": 10,
+        "categoria": "Biceps"
+      },
+      {
+        "name": "Rosca Martelo",
+        "sets": 3,
+        "reps": 12,
+        "weight": 15,
+        "categoria": "Biceps"
+      }
+    ]
+  },
+  {
+    "title": "Treino de Inferiores (Geral)",
+    "icon": "figure.legs.cross.fill",
+    "exercises": [
+      {
+        "name": "Agachamento Livre",
+        "sets": 3,
+        "reps": 10,
+        "weight": 80,
+        "categoria": "Inferior"
+      },
+      {
+        "name": "Leg Press",
+        "sets": 3,
+        "reps": 12,
+        "weight": 120,
+        "categoria": "Inferior"
+      },
+      {
+        "name": "Extensora",
+        "sets": 3,
+        "reps": 15,
+        "weight": 40,
+        "categoria": "Inferior"
+      },
+      {
+        "name": "Flexora",
+        "sets": 3,
+        "reps": 15,
+        "weight": 30,
+        "categoria": "Inferior"
+      },
+      {
+        "name": "Panturrilha em Pé",
+        "sets": 4,
+        "reps": 20,
+        "weight": 50,
+        "categoria": "Inferior"
+      }
+    ]
+  }
+]

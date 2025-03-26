@@ -13,6 +13,6 @@ struct academyApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: WorkoutModel.self)
+        .modelContainer(for: [WorkoutModel.self, Exercise.self])
     }
 }
