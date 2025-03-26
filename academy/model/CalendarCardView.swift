@@ -27,7 +27,6 @@ struct CalendarView: View {
             .frame(height: 75)
             .tabViewStyle(.page(indexDisplayMode: .never))
             
-            // Exibir treinos salvos
             workoutCards()
                 .padding()
         }
@@ -83,36 +82,40 @@ struct CalendarView: View {
                         .font(.title2)
                         .foregroundColor(.gray)
                 } else {
-                    ForEach(workouts, id: \.title) { workout in
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Image(systemName: workout.icon)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundColor(.blue)
-                                
-                                VStack(alignment: .leading) {
-                                    Text(workout.title)
-                                        .font(.headline)
-                                        .bold()
-                                    Text("\(workout.exercises.count) exercícios")
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
+                    ForEach(workouts, id: \..title) { workout in
+                        NavigationLink(destination: ExerciseView()) {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Image(workout.icon)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 70, height: 70)
+                                        .foregroundColor(.blue)
+
+                                    VStack(alignment: .leading) {
+                                        Text(workout.title)
+                                            .font(.headline)
+                                            .bold()
+                                        Text("\(workout.exercises.count) exercícios")
+                                            .font(.subheadline)
+                                            .foregroundColor(.gray)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
                                 }
-                                Spacer()
+                                .padding(.trailing, 15)
                             }
-                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15).fill(Color.primary.opacity(0.1)))
+                            .padding(.horizontal)
                         }
-                        .frame(maxWidth: .infinity)
-                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue.opacity(0.1)))
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
         }
     }
-    
+
     func loadWorkouts() {
 //        workouts = [
 //            WorkoutModelJSON(title: "Treino A", icon: "dumbbell", exercises: []),
@@ -164,7 +167,7 @@ struct CalendarView: View {
                     .cornerRadius(10)
             } else if Calendar.current.isDateInToday(day) {
                 Rectangle()
-                    .fill(Color.orange.opacity(0.2))
+                    .fill(Color.yellow.opacity(0.3))
                     .cornerRadius(10)
             } else {
                 Rectangle()
