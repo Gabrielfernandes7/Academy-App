@@ -22,29 +22,40 @@ struct AddWorkoutView: View {
     var body: some View {
         NavigationView {
             VStack {
-//                Image("Icone do treino")
                 TextField("Digite o nome do treino", text: $workoutName)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                HStack(spacing: 20) {
-                            ForEach(images, id: \.self) { image in
-                                ZStack {
-                                    if selectedImage == image {
-                                        Rectangle()
-                                            .stroke(Color.blue, lineWidth: 3) // Destaque ao redor da imagem selecionada
-                                            .frame(width: 70, height: 70).cornerRadius(12)
-                                    }
-                                    Image(image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 70, height: 70)
-                                        .clipShape(Rectangle()) //
-                                        .onTapGesture {
-                                            selectedImage = image
-                                        }.cornerRadius(12)
+                VStack{
+                    Text("Selecione um ícone")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading) // Alinha o texto à esquerda
+                        .padding(.horizontal, 15)
+                    HStack(spacing: 25) {
+                        ForEach(images, id: \.self) { image in
+                            ZStack {
+                                if selectedImage == image {
+                                    Rectangle()
+                                        .stroke(Color.yellow, lineWidth: 13) // Borda amarela e mais espessa
+                                        .frame(width: 80, height: 80) // Aumentando o tamanho da borda
+                                        .cornerRadius(12)
+                                        .shadow(color: .yellow, radius: 10, x: 0, y: 0) // Sombra amarela para destacar
                                 }
+                                Image(image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: selectedImage == image ? 80 : 70, height: selectedImage == image ? 80 : 70) // Aumenta o tamanho da imagem selecionada
+                                    .clipShape(Rectangle()) // Mantém a forma retangular
+                                    .onTapGesture {
+                                        selectedImage = image
+                                    }
+                                    .cornerRadius(12)
                             }
                         }
+                    }
+
+                }
+                
+
                 
                 List {
                     ForEach(categorizedExercises.keys.sorted(), id: \.self) { category in
@@ -71,18 +82,15 @@ struct AddWorkoutView: View {
                                             .foregroundColor(selectedExercises.contains(exercise) ? .blue : .gray)
                                     }
                                     .buttonStyle(BorderlessButtonStyle())
-                                }
+                                }.navigationBarItems(trailing: Button("Salvar") {
+                                    saveSelectedExercises()
+                                })
                                 .padding(.vertical, 4)
                             }
                         }
                     }
                 }
                 
-                Button("Salvar") {
-                    saveSelectedExercises()
-                }
-                .padding()
-                .disabled(workoutName.isEmpty || selectedExercises.isEmpty)
             }
             .navigationTitle("Criar Treino")
         }
