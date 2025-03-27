@@ -26,6 +26,8 @@ struct AddWorkoutView: View {
         icon.rawValue
     }
     
+    var buttonColor: Color = Color(red: 36/255, green: 138/255, blue: 61/255)
+    
     
     var categorizedExercises: [String: [ExerciseJSON]] {
         Dictionary(grouping: workouts.flatMap { $0.exercises }) { $0.categoria }
@@ -102,7 +104,7 @@ struct AddWorkoutView: View {
                                         toggleSelection(for: exercise)
                                     }) {
                                         Image(systemName: selectedExercises.contains(exercise) ? "checkmark.square.fill" : "square")
-                                            .foregroundColor(selectedExercises.contains(exercise) ? .blue : .gray)
+                                            .foregroundColor(buttonColor)
                                     }
                                     .buttonStyle(BorderlessButtonStyle())
                                 }

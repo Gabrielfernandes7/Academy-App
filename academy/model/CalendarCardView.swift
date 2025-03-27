@@ -9,6 +9,9 @@ struct CalendarView: View {
     @State var addWorkout: Bool = false
     @Query var workouts: [WorkoutModel]
     
+    var buttonColor: Color = Color(red: 36/255, green: 138/255, blue: 61/255)
+    let dayColor = Color(red: 255/255, green: 212/255, blue: 38/255)
+    
     enum DayType {
         case today, past, future
     }
@@ -58,15 +61,15 @@ struct CalendarView: View {
                         addWorkout = true
                     } label: {
                         Image(systemName: "plus.square.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.primary)
+                            .font(.system(size: 30))
+                            .foregroundColor(buttonColor)
                     }
                     .sheet(isPresented: $addWorkout) {
                         AddWorkoutView().presentationDragIndicator(.visible)
                     }
                 }
-                Text(formattedDate(currentDate))
-                    .font(.headline)
+//                Text(formattedDate(currentDate))
+//                    .font(.headline)
             }
             Spacer()
         }
@@ -101,7 +104,7 @@ struct CalendarView: View {
                                             .foregroundColor(.gray)
                                     }
                                     Spacer()
-                                    Image(systemName: "chevron.right")
+                                    Image(systemName: "chevron.right").foregroundStyle(buttonColor)
                                 }
                                 .padding(.trailing, 15)
                             }
@@ -121,6 +124,7 @@ struct CalendarView: View {
 //            WorkoutModelJSON(title: "Treino A", icon: "dumbbell", exercises: []),
 //            WorkoutModelJSON(title: "Treino B", icon: "flame.fill", exercises: [])
 //        ]
+        
     }
 
     @ViewBuilder
@@ -137,11 +141,12 @@ struct CalendarView: View {
         VStack {
             Text(day.formatted(.dateTime.weekday().locale(Locale(identifier: "pt_BR"))).capitalized)
                 .font(.caption)
-                .foregroundStyle(isSameDate(day, currentDate) ? Color.white : Color.gray)
+                .foregroundStyle(day < Date() ? Color.white : (isSameDate(day, currentDate) ? Color.white : Color.primary))
+
             Text(day, format: .dateTime.day())
                 .font(.title2)
                 .bold()
-                .foregroundStyle(isSameDate(day, currentDate) ? Color.white : Color.gray)
+                .foregroundStyle(day < Date() ? Color.white : (isSameDate(day, currentDate) ? Color.white : Color.primary))
         }
         .padding(8)
         .background {
@@ -159,6 +164,13 @@ struct CalendarView: View {
         }
     }
 
+
+
+    
+
+    
+    
+
     func dayBackground(for day: Date) -> some View {
         Group {
             if isSameDate(day, currentDate) {
@@ -167,7 +179,11 @@ struct CalendarView: View {
                     .cornerRadius(10)
             } else if Calendar.current.isDateInToday(day) {
                 Rectangle()
-                    .fill(Color.yellow.opacity(0.3))
+                    .fill(dayColor)
+                    .cornerRadius(10)
+            } else if day < Date() {
+                Rectangle()
+                    .fill(buttonColor)
                     .cornerRadius(10)
             } else {
                 Rectangle()

@@ -1,17 +1,19 @@
-//
-//  academyApp.swift
-//  academy
-//
-//  Created by user on 14/03/25.
-//
-
 import SwiftUI
 
 @main
 struct academyApp: App {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasSeenOnboarding {
+                ContentView()
+            } else {
+                OnBoardView()
+                    .onDisappear {
+                        hasSeenOnboarding = true
+                    }
+            }
         }
         .modelContainer(for: [WorkoutModel.self, Exercise.self])
     }
